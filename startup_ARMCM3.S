@@ -215,10 +215,6 @@ Reset_Handler:
 	blt	.L_loop3
 #endif /* __STARTUP_CLEAR_BSS_MULTIPLE || __STARTUP_CLEAR_BSS */
 
-#ifndef __NO_SYSTEM_INIT
-	bl	SystemInit
-#endif
-
 #ifndef __START
 #define __START _start
 #endif
