@@ -25,7 +25,7 @@ void delay_for(volatile int clocks)
 
 void main(void)
 {
-	/*RCC_APB2ENR = (1<<4);
+	RCC_APB2ENR |= (1<<4);
 	GPIOC_CRH   &= 0xFF0FFFFF;
 	GPIOC_CRH   |= 0x00200000;
 	while(1)
@@ -34,18 +34,5 @@ void main(void)
 		delay_for(1000000);
 		GPIOC_ODR &= (~(1 << 13));
 		delay_for(1000000);
-	}*/
-	int i = 0;
-	(*(volatile unsigned int *)(0x40021018)) |= (1 << 4);
-
-    (*(volatile unsigned int *)(0x40011004)) |= (0x00 << (((13 - 8) * 4) + 2));
-    (*(volatile unsigned int *)(0x40011004)) |= (0x02 << ((13 - 8) * 4));
-
-    while(1) {
-        (*(volatile unsigned int *)(0x40011010)) = (1 << 13);
-        for (i = 0; i < 1000000; ++i) __asm__("nop");
-
-        (*(volatile unsigned short *)(0x40011014)) = (1 << 13);
-        for (i = 0; i < 500000; ++i) __asm__("nop");
-    }
+	}
 }
