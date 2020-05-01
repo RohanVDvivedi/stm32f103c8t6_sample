@@ -7,7 +7,7 @@ ARCH_FLAGS:=-mcpu=cortex-m3 -mthumb
 # optimization for code size, use -O(0,1,2,3) for execution performance
 OPTIMIZATION:=-Os
 # the final compiler flags
-CFLAGS:=$(ARCH_FLAGS) ${OPTIMIZATION} -I.# -flto
+CFLAGS:=$(ARCH_FLAGS) ${OPTIMIZATION} -I.
 
 # add this option to LDFLAGS to build the map file along side the executable elf
 MAP:=-Map=main.map
