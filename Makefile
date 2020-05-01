@@ -7,12 +7,12 @@ ARCH_FLAGS:=-mcpu=cortex-m3 -mthumb
 # optimization for code size, use -O(0,1,2,3) for execution performance
 OPTIMIZATION:=-Os
 # the final compiler flags
-CFLAGS:=$(ARCH_FLAGS) $(STARTUP_DEFS) ${OPTIMIZATION} -flto -ffunction-sections -fdata-sections -I.
+CFLAGS:=$(ARCH_FLAGS) $(STARTUP_DEFS) ${OPTIMIZATION} -I.# -flto -ffunction-sections -fdata-sections
 
 # add this option to LDFLAGS to build the map file along side the executable elf
 MAP:=-Map=main.map
 USE_NOHOST:=#--specs=nosys.specs
-GC:=--gc-sections
+GC:=#--gc-sections
 # introduce the path to the linker script and the name of the linker script
 LDSCRIPTS:=-L. -T linker_script.ld
 #the final linker flags
@@ -31,7 +31,8 @@ clean :
 	${CC} $(CFLAGS) $< -o $@
 
 # add startup default defines for the project here
-STARTUP_DEFS:=-D__STARTUP_CLEAR_BSS		# check startup code, this will enable the startup file to zero the bss section, before starting
+# check startup code, this will enable the startup file to zero the bss section, before starting
+STARTUP_DEFS:=-D__STARTUP_CLEAR_BSS
 
 # generate explicitly the startup object elf for this controller and project
 startup_ARMCM3.o : startup_ARMCM3.s
