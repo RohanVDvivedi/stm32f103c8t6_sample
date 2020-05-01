@@ -23,6 +23,6 @@ void main(void)
 	while(1)
 	{
 		GPIOC->GPIO_ODR ^= (1 << 13);
-		delay_for(100000);
+		delay_for(300000);
 	}
 }
