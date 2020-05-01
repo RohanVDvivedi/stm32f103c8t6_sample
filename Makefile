@@ -7,12 +7,11 @@ ARCH_FLAGS:=-mcpu=cortex-m3 -mthumb
 # optimization for code size, use -O(0,1,2,3) for execution performance
 OPTIMIZATION:=-Os
 # the final compiler flags
-CFLAGS:=$(ARCH_FLAGS) ${OPTIMIZATION} -I.# -flto -ffunction-sections -fdata-sections
+CFLAGS:=$(ARCH_FLAGS) ${OPTIMIZATION} -I.# -flto
 
 # add this option to LDFLAGS to build the map file along side the executable elf
 MAP:=-Map=main.map
 USE_NOHOST:=#--specs=nosys.specs
-GC:=#--gc-sections
 # introduce the path to the linker script and the name of the linker script
 LDSCRIPTS:=-L. -T linker_script.ld
 #the final linker flags
