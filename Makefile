@@ -11,11 +11,10 @@ CFLAGS:=$(ARCH_FLAGS) ${OPTIMIZATION} -I.# -flto
 
 # add this option to LDFLAGS to build the map file along side the executable elf
 MAP:=-Map=main.map
-USE_NOHOST:=#--specs=nosys.specs
 # introduce the path to the linker script and the name of the linker script
 LDSCRIPTS:=-L. -T linker_script.ld
 #the final linker flags
-LDFLAGS:=$(USE_NOHOST) $(LDSCRIPTS)
+LDFLAGS:=$(LDSCRIPTS)
 
 # clean project
 clean :
