@@ -34,7 +34,7 @@ clean :
 STARTUP_DEFS:=-D__STARTUP_CLEAR_BSS
 
 # generate explicitly the startup object elf for this controller and project
-startup_ARMCM3.o : startup_ARMCM3.s
+startup_ARMCM3.o : startup_ARMCM3.S
 	${CC} $(CFLAGS) $(STARTUP_DEFS) $< -o $@
 
 # generate final elf by linking all the object files
