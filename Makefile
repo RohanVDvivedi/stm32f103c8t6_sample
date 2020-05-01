@@ -15,7 +15,7 @@ USE_NOHOST:=#--specs=nosys.specs
 # introduce the path to the linker script and the name of the linker script
 LDSCRIPTS:=-L. -T linker_script.ld
 #the final linker flags
-LDFLAGS:=$(USE_NOHOST) $(LDSCRIPTS) $(GC)
+LDFLAGS:=$(USE_NOHOST) $(LDSCRIPTS)
 
 # clean project
 clean :
