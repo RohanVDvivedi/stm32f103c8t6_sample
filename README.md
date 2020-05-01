@@ -21,3 +21,5 @@ This is a sample project for bare metal programming STM32F103 blue pill board
 
 I do not recommend baremetal programming,
 It is just me exploring brainfuck and masochism.
+
+1st May'2020 edit : I do recommend bare metal programming, projects based on this template have made me learn immensely, since then.
