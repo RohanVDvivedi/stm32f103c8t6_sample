@@ -3,7 +3,7 @@ OC:=arm-none-eabi-objcopy
 
 ARCH_FLAGS:=-mthumb -mcpu=cortex-m3
 STARTUP_DEFS=-D__STARTUP_CLEAR_BSS -D__START=main
-CFLAGS:=$(ARCH_FLAGS) $(STARTUP_DEFS) -Os -flto -ffunction-sections -fdata-sections
+CFLAGS:=$(ARCH_FLAGS) $(STARTUP_DEFS) -Os -flto -ffunction-sections -fdata-sections -I.
 
 USE_NOHOST:=--specs=nosys.specs
 GC:=-Wl,--gc-sections
