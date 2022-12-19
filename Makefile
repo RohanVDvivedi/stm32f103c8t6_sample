@@ -62,4 +62,7 @@ clean :
 
 # upload command to upload the code to the microcontroller
 upload :
+	st-flash write main.bin 0x08000000
+
+upload-using-uart :
 	stm32flash -w main.bin /dev/ttyUSB0
